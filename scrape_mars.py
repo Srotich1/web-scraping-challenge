@@ -1,6 +1,7 @@
 # Declare Dependencies 
 from bs4 import BeautifulSoup as bs
 from splinter import Browser
+from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import os
 import time
@@ -10,8 +11,8 @@ warnings.filterwarnings('ignore')
 
 def init_browser():
     # @NOTE: Path to my chromedriver
-    executable_path = {"executable_path": "C:\\Users\\charm\\Desktop\chromedriver"}
-    return Browser("chrome", **executable_path, headless=False)
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    return Browser('chrome', **executable_path, headless=False)
 
 # Create Mission to Mars global dictionary that can be imported into Mongo
 mars_info = {}
