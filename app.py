@@ -25,10 +25,10 @@ def scrape():
     print("I am in scrape")
     mars_info=scrape_mars.mars_news_scrape()
     mars_info=scrape_mars.img_scrape()
-#     mars_info=scrape_mars.mars_weather()
+
     mars_info=scrape_mars.mars_facts()
     mars_info=scrape_mars.mars_hem()
-    mongo.db.mars_db.update({},mars_info,upsert=True)
+    mongo.db.mars_db.update_one({}, {"$set": mars_info}, upsert=True)
     return redirect("/")
 
 if __name__ == "__main__":

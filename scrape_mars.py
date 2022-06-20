@@ -1,6 +1,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import pandas as pd
+from flask import Flask, render_template, redirect
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -55,22 +56,6 @@ def img_scrape():
     
      return mars_data
 
-
-# def mars_weather():
-#      browser = init_browser()
-#      #Visit the Mars Weather twitter account
-#      Tweet_url='https://twitter.com/marswxreport?lang=en'
-#      # Retrieve page with the requests module
-#      browser.visit(Tweet_url)
-#      #create HTML object
-#      html=browser.html
-#      twit_soup=bs(html,'html.parser')
-
-#      # Extract title text
-#      mars_data['mars_weather'] = twit_soup.find('p',class_='TweetTextSize').text
-#      #print('mars_weather = '+ mars_weather.text)
-#      return mars_data
-
 def mars_facts():
      # Visit the Mars Facts webpage
      mars_facts_url='https://space-facts.com/mars/'
@@ -113,4 +98,5 @@ def mars_hem():
           img_data=dict({'title':title, 'img_url':hemisphere_img_url})
           hemisphere_img_urls.append(img_data)
      mars_data['hemisphere_img_urls']=hemisphere_img_urls
+
      return mars_data
