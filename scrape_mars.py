@@ -35,6 +35,7 @@ def mars_news_scrape():
      nasa_news_paragraph=Nasa_soup.find('div',class_='article_teaser_body').text
      print(nasa_news_paragraph)
 
+     browser.quit()
      return mars_data
      
 def img_scrape():
@@ -54,6 +55,7 @@ def img_scrape():
      featured_image_url = jplNasa_url + featured_image_url
      print(featured_image_url)
     
+     browser.quit()
      return mars_data
 
 def mars_facts():
@@ -67,6 +69,7 @@ def mars_facts():
      mars_facts = df.to_html()
      mars_data['mars_facts'] = mars_facts
      return mars_data
+     
 
 
 def mars_hem():
@@ -99,4 +102,5 @@ def mars_hem():
           hemisphere_img_urls.append(img_data)
      mars_data['hemisphere_img_urls']=hemisphere_img_urls
 
+     browser.quit()
      return mars_data
